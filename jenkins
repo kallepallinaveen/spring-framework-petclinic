@@ -27,10 +27,8 @@ pipeline{
             }
             steps {  
                 withSonarQubeEnv('sonarqube-scanner'){
-                   sh 
+                   sh 'mvn clean package sonar:sonar'
                     }
-
-
                 }
                  sleep time: 30000, unit: 'MILLISECONDS'
                 script {
