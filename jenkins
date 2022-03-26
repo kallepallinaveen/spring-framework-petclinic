@@ -28,9 +28,9 @@ pipeline{
             steps {  
                 withSonarQubeEnv('sonarqube-scanner'){
                    sh 'mvn clean package sonar:sonar'
-                    }
                 }
-                 sleep time: 30000, unit: 'MILLISECONDS'
+            }
+                sleep time: 30000, unit: 'MILLISECONDS'
                 script {
                         def qg = waitForQualityGate()
                         if (qg.status != 'OK') {
