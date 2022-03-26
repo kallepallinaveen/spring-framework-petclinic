@@ -25,9 +25,9 @@ pipeline{
             environment {
               def scannerHome = tool 'SonarQube Scanner 2.4'
             }
-            steps {  
+            steps{  
                 withSonarQubeEnv('sonarqube-scanner'){
-                   sh 'mvn clean package sonar:sonar'
+                   sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
                 sleep time: 30000, unit: 'MILLISECONDS'
